@@ -5,7 +5,8 @@ defmodule Brokelinks.PageController do
     render conn, "index.html"
   end
 
-  def analyze(conn, params) do
-    render conn, "analyze.html"
+  def analyze(conn, %{"url" => url}) do
+    broken_links = BrokenLinks.PageAnalyzer.analyze(url)
+    render conn, "analyze.html", url: url, broken_links: broken_links
   end
 end

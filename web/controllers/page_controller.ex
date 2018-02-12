@@ -4,4 +4,8 @@ defmodule Brokelinks.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+
+  def analyze(conn, params) do
+    render conn, "analyze.html"
+  end
 end
